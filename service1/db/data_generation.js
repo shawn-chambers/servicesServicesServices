@@ -1,13 +1,4 @@
-// const { db, Product } = require('./index');
 const h = require('../helpers/helpers');
-
-// id,
-// name,
-// description,
-// features,
-// sellPrice,
-// originalPrice,
-// type - thing (cleaning supplies, appliance, instrument, medical device?), idea
 
 const generate = (total) => {
   let data = [];
@@ -24,7 +15,7 @@ const generate = (total) => {
     }
     data.push(prod);
   }
-  // console.log(Array.isArray(data[0].features[0]));
+
   return data;
 }
 

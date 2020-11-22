@@ -52,6 +52,11 @@ const Product = sequelize.define('Product', {
   }
 });
 
+if (process.env.NODE_ENV === 'development') {
+  (async() => {
+    await Product.sync();
+  })();
+}
 
 module.exports = {
   db: sequelize,
