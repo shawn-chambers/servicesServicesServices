@@ -32,7 +32,6 @@ module.exports.postProduct = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
     res.status(404).json({
       status: 'failure',
       message: 'Error adding product'
@@ -53,7 +52,6 @@ module.exports.updateProduct = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
     res.status(404).json({
       status: 'failure',
       message: 'Error updating product'

@@ -7,7 +7,8 @@ const sequelize = new Sequelize(
   null,
   {
     host: process.env.HOST,
-    dialect: 'postgres'
+    dialect: 'postgres',
+    logging: false
   }
 );
 
