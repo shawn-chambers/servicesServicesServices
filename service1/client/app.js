@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import axios from 'axios';
 import exampleData from './example.js';
 
-import Info from './components/Info';
+import Info from './components/Accordion/Info';
 
 const App = () => {
 

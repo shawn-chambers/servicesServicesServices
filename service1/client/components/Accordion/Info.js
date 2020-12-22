@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import Tab from './AccordionTab';
+import { InfoContainer } from './AccordionStyles.css';
 
 const accordionReducer = (state, action) => {
   let [tab, status] = action;
@@ -25,12 +26,14 @@ const Info = ({prodInfo}) => {
   const [state, dispatch] = useReducer(accordionReducer, initialState);
 
   return (
-    <div className="accordion">
-      <Tab title={'Features'} features={prodInfo.features} toggle={toggleAccordion}  state={state.features}/>
-      <Tab title={'Description'} description={prodInfo.description} toggle={toggleAccordion} state={state.description}/>
-      <Tab title={'Shipping and Returns'} toggle={toggleAccordion} state={state.shipping}/>
-      <Tab title={'Care Guide'} toggle={toggleAccordion} state={state.care}/>
-    </div>
+    <InfoContainer>
+      <div className="accordion-container">
+        <Tab title={'Features'} features={prodInfo.features} toggle={toggleAccordion}  state={state.features}/>
+        <Tab title={'Description'} description={prodInfo.description} toggle={toggleAccordion} state={state.description}/>
+        <Tab title={'Shipping and Returns'} toggle={toggleAccordion} state={state.shipping}/>
+        <Tab title={'Care Guide'} toggle={toggleAccordion} state={state.care}/>
+      </div>
+    </InfoContainer>
   )
 }
 
