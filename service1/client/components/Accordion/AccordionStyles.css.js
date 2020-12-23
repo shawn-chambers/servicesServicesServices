@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const InfoContainer = styled.div`
-  font-family: sans-serif;
-
   .accordion_tab {
     display: flex;
     flex-direction: column;
@@ -13,7 +11,7 @@ export const InfoContainer = styled.div`
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 8px;
     display: flex;
     align-items: center;
     border: none;

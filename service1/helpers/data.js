@@ -143,7 +143,9 @@ module.exports.types = [
   'appliance',
   'musical instrument',
   'medical device',
-  'idea'
+  'idea',
+  'clothing',
+  'headwear'
 ]
 
 

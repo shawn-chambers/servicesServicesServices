@@ -1,11 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import Chevron from './Chevron';
 
 const tabParser = (props) => {
   return props.title.split(' ')[0].toLowerCase();
 }
 
-// const [setHeight, height] = useState('0px');
 const setHeight = ({state}) => {
   if (state === 'collapsed') {
     return {
@@ -13,7 +12,7 @@ const setHeight = ({state}) => {
     }
   } else {
     return {
-      maxHeight: '60px'
+      maxHeight: '200px'
     }
   }
 }

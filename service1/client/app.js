@@ -3,7 +3,9 @@ import ReactDom from 'react-dom';
 import axios from 'axios';
 import exampleData from './example.js';
 
+import { GlobalStyle } from './Style/global.syles.css';
 import Info from './components/Accordion/Info';
+import Selectors from './components/Selectors/Selectors';
 
 const App = () => {
 
@@ -18,11 +20,13 @@ const App = () => {
       .catch(err => {
         console.log(err);
       })
-  }, [])
+  }, []);
 
   return (
     <>
-      <Info prodInfo={exampleData.data.product}/>
+      <GlobalStyle/>
+        <Selectors />
+        <Info prodInfo={exampleData.data.product}/>
     </>
   )
 }
