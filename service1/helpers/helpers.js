@@ -1,15 +1,15 @@
-const { first, middle, end, time, buzzNouns, buzzAdjectives, buzzVerbs, buzzPlaces, buzzNums, features, types } = require('./data');
+const { first, middle, end, time, buzzNouns, buzzAdjectives, buzzVerbs, buzzPlaces, buzzNums, features, types, colors } = require('./data');
 
-var randomizer = (arr) => {
+const randomizer = (arr) => {
   let i = Math.floor(Math.random() * Math.floor(arr.length));
   return arr[i];
 };
 
-var randomNumber = (max, min = 0) => {
+const randomNumber = (max, min = 0) => {
   return Math.floor(Math.random() * (max + 1 - min) + min);
 }
 
-var getRandomIndex = (arr) => {
+const getRandomIndex = (arr) => {
   return Math.floor(Math.random() * Math.floor(arr.length));
 };
 
@@ -28,6 +28,25 @@ const capitalize = (s) => {
 
 const generateType = () => {
   return randomizer(types);
+}
+
+const generateSizes = (category) => {
+  switch (category) {
+    case 'clothing':
+    case 'headwear':
+      return ['XS', 'S', 'M', 'L', 'XL'];
+    default:
+      return ['8', '9', '10', '11', '12'];
+  }
+}
+
+const generateOptions = () => {
+  let total = randomNumber(8, 2);
+  let productColors = [];
+  for (let i = 0; i <= total; i ++) {
+    productColors.push(randomizer(colors))
+  }
+  return productColors;
 }
 
 const generateFeatures = () => {
@@ -74,5 +93,7 @@ module.exports = {
   generateDescription,
   generateFeatures,
   generateType,
-  randomNumber
+  randomNumber,
+  generateSizes,
+  generateOptions
 }

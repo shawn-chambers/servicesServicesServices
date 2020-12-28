@@ -9,7 +9,7 @@ export default {
       "salePrice": 339.75,
       "features": ["Recycled materials",
       "Rust resistant"],
-      "category": "medical device",
+      "category": "headwear",
       "createdAt": "2020-11-22T19: 09: 41.886Z",
       "updatedAt": "2020-11-22T19: 09: 41.886Z"
     }

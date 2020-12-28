@@ -51,12 +51,24 @@ const Product = sequelize.define('Product', {
   category: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  sizes: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: false,
+  },
+  sizesAvailable: {
+    type: DataTypes.JSON,
+    allowNull: false,
+  },
+  options: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: false,
   }
 });
 
 if (process.env.NODE_ENV === 'development') {
   (async() => {
-    await Product.sync();
+     Product.sync();
   })();
 }
 
