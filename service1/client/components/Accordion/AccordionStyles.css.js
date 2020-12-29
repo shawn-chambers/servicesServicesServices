@@ -9,7 +9,6 @@ export const InfoContainer = styled.div`
   /* Style the buttons that are used to open and close the accordion panel */
   .accordion {
     background-color: #eee;
-    color: #444;
     cursor: pointer;
     padding: 8px;
     display: flex;

@@ -11,7 +11,6 @@ export const SelectorsContainer = styled.div`
     background-color: #eee;
     height: 60px;
     width: 60px;
-    color: #444;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -31,16 +30,21 @@ export const SelectorsContainer = styled.div`
     align-items: center;
   }
 
+  .sold-out {
+    color: red;
+    margin-left: 8px;
+  }
+
+  .label {
+    margin-bottom: 5px;
+  }
+
   .color {
     border-radius: 50%;
   }
 
-  .color:hover {
-    border: 3px solid #ccc;
-  }
-
   .color.selected {
-    border: 3px solid black;
+    border: 3px solid black !important;
   }
   
   .purchase-button {
@@ -60,5 +64,12 @@ export const SelectorsContainer = styled.div`
   .selected {
     background-color: black;
     color: white;
+  }
+
+  .selector.out-of-stock {
+    color: white
+  }
+  .selector.out-of-stock:hover {
+    background-color: #eee;
   }
 `;
