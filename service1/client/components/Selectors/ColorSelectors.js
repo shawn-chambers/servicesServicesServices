@@ -3,7 +3,9 @@ import React from 'react';
 const ColorSelectors = (props) => {
 
   return (
-    <div>Select Me!</div>
+    <>
+      <button className={`selector ${props.state[props.option]}`} onClick={() => props.toggle([props.option, props.state])}>{props.option}</button>
+    </>
   )
 }
 

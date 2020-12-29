@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const SelectorsContainer = styled.div`
-  .button-container {
+
+
+  .size-button-container,
+  .color-button-container {
     display: flex;
     justify-content: space-evenly;
   }
+
+
 
   button {
     background-color: #eee;

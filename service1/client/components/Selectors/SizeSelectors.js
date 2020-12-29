@@ -1,74 +1,37 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import SizeBox from './SizeBox';
 import { SelectorsContainer } from './SelectorsStyles.css';
 import PurchaseButton from './PurchaseButton';
+import ColorSelectors from './ColorSelectors';
+import { useMakeOptionButtons } from '../../Hooks/useMakeButtons';
 
-const categoryParser = (category) => {
-  switch (category) {
-    case 'clothing':
-    case 'headwear':
-      return ['XS', 'S', 'M', 'L', 'XL'];
-    default:
-      return ['8', '9', '10', '11', '12'];
-  }
-}
+const SizeSelectors = ({ prodInfo }) => {
 
-/*
-['XS', 'S', 'M', 'L', 'XL'],
-
-{
-  'XS': 1
-  'S':0
-  'M': 3
-  'L': 8
-  'XL':10
-}
-*/
-
-
-const SizeSelectors = ({prodInfo}) => {
-  
-  const selectorReducer = (state, action) => {
-    let [option, status] = action;
-    status = status[option] === 'selected' ? 'unselected' : 'selected';
-    if (status === 'unselected') {
-      return {
-        ...initialState,
-        [option]: status,
-        selected: false
-      }
-    } else {
-      return {
-        ...initialState,
-        [option]: status,
-        selected: true
-      }
-    }
-  }
-
-  const select = (action) => {
-    dispatch(action);
-  }
-
-  const initialState = categoryParser(prodInfo.category).reduce((acc, curr) => {
-    acc[curr] = 'unselected';
-    return acc;
-  }, {selected: false});
-
-  const [state, dispatch] = useReducer(selectorReducer, initialState);
+  const [sizeSelect, sizeState] = useMakeOptionButtons(prodInfo.sizes);
+  const [select, state] = useMakeOptionButtons(prodInfo.options);
 
   return (
     <SelectorsContainer >
       <div className='button-container'>
-        {
-          categoryParser(prodInfo.category).map((option, i) => {
-            return <SizeBox key={i} option={option} toggle={select} state={state}/>;
-          })
-        }
+        <div className='color-button-container'>
+          {
+            prodInfo.options.map((option, i) => {
+              return <ColorSelectors key={i} option={option} toggle={select} state={state} />;
+            })
+          }
+        </div>
+        <div className='size-button-container'>
+          {
+            prodInfo.sizes.map((option, i) => {
+              return <SizeBox key={i} option={option} toggle={sizeSelect} state={sizeState} />;
+            })
+          }
+        </div>
       </div>
-      <PurchaseButton active={state.selected} />
+      <PurchaseButton active={sizeState.selected && state.selected} />
     </SelectorsContainer >
   )
+
 }
 
 export default SizeSelectors;
