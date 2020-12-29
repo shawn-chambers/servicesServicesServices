@@ -5,7 +5,7 @@ import exampleData from './example.js';
 
 import { GlobalStyle } from './Style/global.syles.css';
 import Info from './components/Accordion/Info';
-import SizeSelectors from './components/Selectors/SizeSelectors';
+import OptionSelectors from './components/Selectors/Selectors';
 
 const App = () => {
 
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle/>
-        <SizeSelectors prodInfo={exampleData.data.product}/>
+        <OptionSelectors prodInfo={exampleData.data.product}/>
         <Info prodInfo={exampleData.data.product}/>
     </>
   )

@@ -1,10 +1,20 @@
 import React from 'react';
 
-const PurchaseButton = ({ active }) => {
+const PurchaseButton = ({ color, size }) => {
+  const set = (color, size) => {
+    if (!color) {
+      return 'Select a color'
+    } else if (!size) {
+      return 'Select a size'
+    } else {
+      return 'Purchase'
+    }
+  }
+
   return (
-    <div className='purchase'>
-      <button className={`purchase-button ${active ? 'active' : ''}`}><span>{active ? 'Purchase' : 'Select a size'}</span></button>
-    </div>
+    <button className={`purchase-button ${color && size ? 'active' : ''}`}>
+      {set(color, size)}
+    </button>
   )
 }
 

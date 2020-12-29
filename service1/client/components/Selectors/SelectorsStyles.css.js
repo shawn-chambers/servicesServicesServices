@@ -1,26 +1,24 @@
 import styled from 'styled-components';
 
 export const SelectorsContainer = styled.div`
-
-
   .size-button-container,
   .color-button-container {
     display: flex;
     justify-content: space-evenly;
   }
 
-
-
   button {
     background-color: #eee;
+    height: 60px;
+    width: 60px;
     color: #444;
     cursor: pointer;
-    padding: 8px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
     border: none;
     outline: none;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.6s ease, border 0.6s linear;
   }
 
   button:hover {
@@ -28,20 +26,31 @@ export const SelectorsContainer = styled.div`
   }
   
   .selector {
-    padding: 13px 18px;
-  }
-
-  .purchase {
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+
+  .color {
+    border-radius: 50%;
+  }
+
+  .color:hover {
+    border: 3px solid #ccc;
+  }
+
+  .color.selected {
+    border: 3px solid black;
   }
   
   .purchase-button {
     width: 100%;
-    height: 100%;
     color: white;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
   .active {
     background: black;
   }
