@@ -6,14 +6,21 @@ const accordionReducer = (state, action) => {
   let [tab, status] = action;
   status = status === 'active' ? 'collapsed' : 'active';
   return {
-    ...initialState,
+    ...resetState,
     [tab]: status
   }
 }
 
-const initialState = {
-  features: 'collapsed',
+const resetState = {
   description: 'collapsed',
+  features: 'collapsed',
+  shipping: 'collapsed',
+  care: 'collapsed'
+}
+
+const initialState = {
+  description: 'active',
+  features: 'collapsed',
   shipping: 'collapsed',
   care: 'collapsed'
 }
@@ -28,8 +35,8 @@ const Info = ({prodInfo}) => {
   return (
     <InfoContainer>
       <div className="accordion-container">
-        <Tab title={'Features'} features={prodInfo.features} toggle={toggleAccordion}  state={state.features}/>
         <Tab title={'Description'} description={prodInfo.description} toggle={toggleAccordion} state={state.description}/>
+        <Tab title={'Features'} features={prodInfo.features} toggle={toggleAccordion}  state={state.features}/>
         <Tab title={'Shipping and Returns'} toggle={toggleAccordion} state={state.shipping}/>
         <Tab title={'Care Guide'} toggle={toggleAccordion} state={state.care}/>
       </div>

@@ -9,8 +9,8 @@ export const SelectorsContainer = styled.div`
 
   button {
     background-color: #eee;
-    height: 60px;
-    width: 60px;
+    height: 54px;
+    width: 54px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -28,6 +28,7 @@ export const SelectorsContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Medium';
   }
 
   .sold-out {
@@ -37,6 +38,7 @@ export const SelectorsContainer = styled.div`
 
   .label {
     margin-bottom: 5px;
+    font-size: 12px;
   }
 
   .color {
@@ -53,6 +55,9 @@ export const SelectorsContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .purchase-button:hover {
+    background-color: #eee;
   }
 
   .active {

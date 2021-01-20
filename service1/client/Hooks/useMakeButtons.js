@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-export const useMakeOptionButtons = (options) => {
+export const useMakeOptionButtons = (options = []) => {
   const selectorReducer = (state, action) => {
     let [option, status] = action;
     status = status[option] === 'selected' ? 'unselected' : 'selected';

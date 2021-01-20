@@ -10,7 +10,7 @@ export const InfoContainer = styled.div`
   .accordion {
     background-color: #eee;
     cursor: pointer;
-    padding: 8px;
+    padding: 4px 12px 4px 12px;
     display: flex;
     align-items: center;
     border: none;
@@ -26,8 +26,7 @@ export const InfoContainer = styled.div`
   
   /* Style the accordion content title */
   .accordion_title {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
+    font-family: Bold;
     font-size: 14px;
     text-align: left;
   }
@@ -53,7 +52,7 @@ export const InfoContainer = styled.div`
   
   /* Style the accordion content text */
   .accordion_text {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Medium';
     font-weight: 400;
     font-size: 14px;
     padding: 18px;

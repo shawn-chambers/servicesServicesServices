@@ -5,6 +5,7 @@ import exampleData from './example.js';
 
 import { GlobalStyle } from './Style/global.syles.css';
 import Info from './components/Accordion/Info';
+import Title from './components/Title/Title';
 import OptionSelectors from './components/Selectors/Selectors';
 
 const App = () => {
@@ -14,7 +15,8 @@ const App = () => {
   useEffect(() => {
     let prodId = window.location.pathname.slice(1, -1);
     axios.get(`http://localhost:3003/products/${prodId}`)
-      .then(({data}) => {
+      .then(({ data }) => {
+        console.log(data);
         setInfo(data.data.product);
       })
       .catch(err => {
@@ -24,11 +26,12 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyle/>
-        <OptionSelectors prodInfo={exampleData.data.product}/>
-        <Info prodInfo={exampleData.data.product}/>
+      <GlobalStyle />
+      <Title prodInfo={exampleData.data.product}/>
+      <OptionSelectors prodInfo={exampleData.data.product} />
+      <Info prodInfo={exampleData.data.product} />
     </>
   )
 }
 
-ReactDom.render(<App/>, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('app'));

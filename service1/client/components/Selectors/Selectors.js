@@ -6,10 +6,11 @@ import ColorSelectors from './ColorSelectors';
 import { useMakeOptionButtons } from '../../Hooks/useMakeButtons';
 
 const OptionSelectors = ({ prodInfo }) => {
-
   const [sizeSelect, size] = useMakeOptionButtons(prodInfo.sizes);
   const [colorSelect, color] = useMakeOptionButtons(prodInfo.options);
   const [soldOut, setSoldOut] = useState(false);
+  
+  if (!Object.keys(prodInfo).length) return null;
 
   return (
     <SelectorsContainer >
@@ -19,19 +20,23 @@ const OptionSelectors = ({ prodInfo }) => {
         </div>
         <div className='color-button-container'>
           {
-            prodInfo.options.map((option, i) => {
-              return <ColorSelectors key={i} option={option} toggle={colorSelect} state={color} />;
-            })
+            Object.keys(prodInfo).length > 0 ?
+            prodInfo.options.map((option, i) => (
+              <ColorSelectors key={i} option={option} toggle={colorSelect} state={color} />
+            )) :
+            null
           }
         </div>
         <div className='label medium'>
-          Select Size: <span>{soldOut ? <span className='sold-out'>Sorry, that size is sold out</span> : ''}</span>
+          Select Size: {soldOut ? <span className='sold-out'>Sorry, that size is sold out</span> : ''}
         </div>
         <div className='size-button-container'>
           {
-            prodInfo.sizes.map((option, i) => {
-              return <SizeSelectors key={`${i}-${option}`} available={prodInfo.sizesAvailable[option]} option={option} toggle={sizeSelect} setSold={setSoldOut} sold={soldOut} state={size} />;
-            })
+            Object.keys(prodInfo).length > 0 ?
+            prodInfo.sizes.map((option, i) => (
+              <SizeSelectors key={`${i}-${option}`} available={prodInfo.sizesAvailable[option]} option={option} toggle={sizeSelect} setSold={setSoldOut} sold={soldOut} state={size} />
+            )) :
+            null
           }
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import Medium from '../assets/Montserrat-Medium.ttf';
-import Thin from '../assets/Montserrat-Thin.ttf';
+import Medium from '../assets/Montserrat-Regular.ttf';
+import Thin from '../assets/Montserrat-Light.ttf';
+import Bold from '../assets/Montserrat-Bold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -12,6 +13,11 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Thin';
     src: local('Monteserrat'), url(${Thin}) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Bold';
+    src: local('Monteserrat'), url(${Bold}) format('truetype');
   }
 
   body {
@@ -26,6 +32,10 @@ export const GlobalStyle = createGlobalStyle`
   
   .thin {
     font-family: 'Thin';
+  }
+  
+  .bold {
+    font-family: 'Bold';
   }
 
   button {
