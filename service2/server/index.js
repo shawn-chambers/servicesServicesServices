@@ -8,4 +8,6 @@ app.use('/:id', express.static('public'));
 
 
 
-app.listen(port, () => { console.log(`carousel service listening on port ${port}`) })
+app.listen(port, () => { 
+  console.log(`carousel service listening on port ${port}`);
+})
