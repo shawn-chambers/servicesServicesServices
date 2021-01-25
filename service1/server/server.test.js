@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use('/products', productRoutes);
 const sequelize = new Sequelize(
-  'test', 
+  'test',
   process.env.USERNAME,
   null,
   {
@@ -19,13 +19,13 @@ const sequelize = new Sequelize(
     dialect: 'postgres',
     logging: false
   }
-  );
+);
 
 describe('testing service api routes', () => {
   beforeAll(async (done) => {
-      await sequelize.authenticate();
-      await Product.sync();
-      done();
+    await sequelize.authenticate();
+    await Product.sync();
+    done();
   });
 
   afterAll(async (done) => {
@@ -43,10 +43,20 @@ describe('testing service api routes', () => {
         "price": 110.99,
         "salePrice": 0.99,
         "features": [
-            'Stuff',
-            'Things'
+          'Stuff',
+          'Things'
         ],
-        "category": 'get get get'
+        "category": "get get get",
+        "sizes": ["XS", "S", "M", "L", "XL"],
+        "options": [
+          "mediumslateblue",
+          "orchid",
+          "lightsteelblue",
+          "moccasin",
+          "darkslategray",
+          "navy"
+        ],
+        "sizesAvailable": { XS: 22, S: 9, M: 0, L: 16, XL: 8 }
       }
 
       await Product.create(prodObj)
@@ -63,7 +73,17 @@ describe('testing service api routes', () => {
               'Stuff',
               'Things'
             ],
-            "category": 'get get get'
+            "category": "get get get",
+            "sizes": ["XS", "S", "M", "L", "XL"],
+            "options": [
+              "mediumslateblue",
+              "orchid",
+              "lightsteelblue",
+              "moccasin",
+              "darkslategray",
+              "navy"
+            ],
+            "sizesAvailable": { XS: 22, S: 9, M: 0, L: 16, XL: 8 }
           }
         }
       }
@@ -83,7 +103,7 @@ describe('testing service api routes', () => {
       try {
         const response = await request(app).get('/products/1000000');
         expect(response.status).toBe(404);
-        expect(JSON.parse(response.text)).toStrictEqual({"status":"failure","message":"Error getting product"});
+        expect(JSON.parse(response.text)).toStrictEqual({ "status": "failure", "message": "Error getting product" });
         done();
       } catch (error) {
         done(error);
@@ -97,16 +117,17 @@ describe('testing service api routes', () => {
     test('PATCH successfully updates a product by id', async (done) => {
       let patchObj = {
         "product": {
-        "name": 'Another PATCH',
-        "description": 'This is testing my get route',
-        "price": 110.99,
-        "salePrice": 0.99,
-        "features": [
+          "name": 'Another PATCH',
+          "description": 'This is testing my get route',
+          "price": 110.99,
+          "salePrice": 0.99,
+          "features": [
             'Stuff',
             'Things'
-        ],
-        "category": 'get get get'
-      }};
+          ],
+          "category": 'get get get'
+        }
+      };
 
       try {
         await request(app).patch('/products/1').send(patchObj);
@@ -123,21 +144,22 @@ describe('testing service api routes', () => {
     test('PATCH to invalid id results in 404', async (done) => {
       let patchObj = {
         "product": {
-        "name": 'Another PATCH',
-        "description": 'This is testing my get route',
-        "price": 110.99,
-        "salePrice": 0.99,
-        "features": [
+          "name": 'Another PATCH',
+          "description": 'This is testing my get route',
+          "price": 110.99,
+          "salePrice": 0.99,
+          "features": [
             'Stuff',
             'Things'
-        ],
-        "category": 'get get get'
-      }};
+          ],
+          "category": 'get get get'
+        }
+      };
 
       try {
         const response = await request(app).get('/products/1000000').send(patchObj);
         expect(response.status).toBe(404);
-        expect(JSON.parse(response.text)).toStrictEqual({"status":"failure","message":"Error getting product"});
+        expect(JSON.parse(response.text)).toStrictEqual({ "status": "failure", "message": "Error getting product" });
         done();
       } catch (error) {
         done(error);
@@ -150,16 +172,17 @@ describe('testing service api routes', () => {
     test('POST successfully adds a product', async (done) => {
       let postObj = {
         "product": {
-        "name": 'POSTing a new product',
-        "description": 'This is testing my post route',
-        "price": 1.99,
-        "salePrice": null,
-        "features": [
+          "name": 'POSTing a new product',
+          "description": 'This is testing my post route',
+          "price": 1.99,
+          "salePrice": null,
+          "features": [
             'Stuff',
             'Things'
-        ],
-        "category": 'post post post'
-      }};
+          ],
+          "category": 'post post post'
+        }
+      };
 
       try {
         await request(app).post('/products').send(postObj);
@@ -175,7 +198,7 @@ describe('testing service api routes', () => {
 
     test('POST results in 404 with bad data', async (done) => {
       let postObj = {
-        "message": "This won't work because it's not supposed to"      
+        "message": "This won't work because it's not supposed to"
       };
 
       try {
@@ -194,7 +217,7 @@ describe('testing service api routes', () => {
         await request(app).delete('/products/2');
         const response = await request(app).get('/products/2');
         expect(response.status).toBe(404);
-        expect(JSON.parse(response.text)).toStrictEqual({"status":"failure","message":"Error getting product"});
+        expect(JSON.parse(response.text)).toStrictEqual({ "status": "failure", "message": "Error getting product" });
         done();
       } catch (error) {
         done(error);
