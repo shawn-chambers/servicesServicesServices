@@ -18,7 +18,6 @@ const App = () => {
 
   return (
     <>
-      <div>Hello World</div>
       <Carousel pictures={pictures}/>
     </>
   )
