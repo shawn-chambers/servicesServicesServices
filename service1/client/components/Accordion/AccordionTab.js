@@ -21,7 +21,7 @@ const Tab = (props) => (
   <div className="accordion_tab">
     <button className={`accordion ${props.state}`} onClick={() => props.toggle([tabParser(props), props.state])}>
     <p className={'accordion_title'}>{props.title}</p>
-    <Chevron width={15} class={`accordion_icon ${props.state === 'active' ? 'rotate' : ''}`}/>
+    <Chevron width={20} class={`accordion_icon ${props.state === 'active' ? 'rotate' : ''}`}/>
     </button>
     <div className="accordion_content" style={setHeight(props)}>
       <div className="accordion_text">

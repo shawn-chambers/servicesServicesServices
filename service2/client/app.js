@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import Carousel from './components/Carousel';
+import { GlobalStyle } from './global.styles.css'
 
 const App = () => {
 
@@ -11,14 +12,15 @@ const App = () => {
   useEffect(() => {
     let prodId = window.location.pathname.slice(1, -1);
     axios.get(`http://localhost:3000/api/pictures/${prodId}`)
-      .then(({data})=> data.message.urls)
+      .then(({ data }) => data.message.urls)
       .then(pictures => setPictures(pictures))
-      .catch(err => console.log('error getting pictures:', err)) 
-  })
+      .catch(err => console.log('error getting pictures:', err))
+  }, [])
 
   return (
     <>
-      <Carousel pictures={pictures}/>
+      <GlobalStyle />
+      <Carousel pictures={pictures} />
     </>
   )
 }

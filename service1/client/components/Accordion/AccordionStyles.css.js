@@ -34,13 +34,13 @@ export const InfoContainer = styled.div`
   /* Style the accordion chevron icon */
   .accordion_icon {
     margin-left: auto;
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
     transition: transform 0.6s ease;
   }
   
   /* Style to rotate icon when state is active */
   .rotate {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
   }
   
   /* Style the accordion content panel. Note: hidden by default */
