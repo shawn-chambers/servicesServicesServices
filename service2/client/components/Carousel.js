@@ -32,8 +32,8 @@ const Carousel = ({ pictures }) => {
           </Slider>
         </div>
         <div className='navigation'>
-          <ButtonBack><Chevron width={30} class={'accordion_icon left'}/></ButtonBack>
-          <ButtonNext><Chevron width={30} class={'accordion_icon right'}/></ButtonNext>
+          <ButtonBack><Chevron width={50} class={'accordion_icon left'}/></ButtonBack>
+          <ButtonNext><Chevron width={50} class={'accordion_icon right'}/></ButtonNext>
         </div>
       </div>
     </CarouselProvider>

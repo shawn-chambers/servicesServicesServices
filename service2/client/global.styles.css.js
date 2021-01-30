@@ -43,17 +43,29 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .navigation button {
+    height: 40px;
+    width: 40px;
     border: none;
     outline: none;
     background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-
+  
   .right {
     transform: rotate(90deg);
   }
-
+  
   .left {
     transform: rotate(270deg);
+  }
+  
+  .navigation button:hover {
+    height: 50px;
+    width: 50px;
+    transition: height 0.6s ease;
   }
 
   .thumbnail {
@@ -67,7 +79,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .carousel__slider--horizontal {
-
     justify-content: center;
   }
 
