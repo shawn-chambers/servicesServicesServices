@@ -32,9 +32,8 @@ export const GlobalStyle = createGlobalStyle`
     position: absolute;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    bottom: 10px;
     width: 500px;
+    top: 225px;
   }
 
   main-picture {
@@ -43,15 +42,18 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .navigation button {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border: none;
     outline: none;
     background-color: transparent;
+    fill: black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: fill 0.6 ease;
+    transition: width 0.2s ease-in;
   }
   
   .right {
@@ -63,9 +65,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   .navigation button:hover {
-    height: 50px;
-    width: 50px;
-    transition: height 0.6s ease;
+    width: 55px;
+    transition: width 0.6s ease;
+    fill: magenta;
+    transition: fill 0.6s ease;
   }
 
   .thumbnail {
