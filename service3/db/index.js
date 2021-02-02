@@ -4,7 +4,7 @@ require('dotenv').config();
 const sequelize = new Sequelize(process.env.DB, process.env.DBUSERNAME, null, {
   host: process.env.DBHOST,
   dialect: 'postgres',
-  // logging: false
+  logging: false
 })
 
 sequelize.authenticate()
