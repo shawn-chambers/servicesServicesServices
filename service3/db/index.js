@@ -60,8 +60,8 @@ const User = sequelize.define('User', {
   }
 });
 
-Review.belongsTo(User);
-User.hasMany(Review);
+Review.belongsTo(User, {foreignKey: 'user_id'});
+User.hasMany(Review, {foreignKey: 'review_id'});
 
 Review.sync();
 User.sync();
