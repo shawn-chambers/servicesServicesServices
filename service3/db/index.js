@@ -3,7 +3,8 @@ require('dotenv').config();
 
 const sequelize = new Sequelize(process.env.DB, process.env.DBUSERNAME, null, {
   host: process.env.DBHOST,
-  dialect: 'postgres'
+  dialect: 'postgres',
+  // logging: false
 })
 
 sequelize.authenticate()
@@ -18,6 +19,10 @@ const Review = sequelize.define('Review', {
     primaryKey: true
   },
   user_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+  product_id: {
     type: DataTypes.INTEGER,
     allowNull: false
   },

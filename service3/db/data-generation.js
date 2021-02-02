@@ -15,8 +15,8 @@ const createFakeUser = () => ({
 });
 
 const createFakeReview = () => ({
+  user_id: faker.random.number({min: 1, max: 1000}),
   product_id: faker.random.number({ min: 1, max: 4 }),
-  user_id: faker.random.number({min: 1, max: 100}),
   review_date: faker.date.past(),
   header: faker.lorem.sentence(3),
   review_text: faker.lorem.paragraph(3, 3),
