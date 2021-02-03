@@ -47,6 +47,19 @@ const Review = sequelize.define('Review', {
   }
 })
 
+const Product = sequelize.define('Product', {
+  product_id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+    allowNull: false
+  },
+  average: {
+    type: DataTypes.FLOAT,
+    allowNull: true
+  }
+})
+
 const User = sequelize.define('User', {
   user_id: {
     type: DataTypes.INTEGER,
@@ -67,11 +80,12 @@ Review.belongsTo(User, {foreignKey: 'user_id'});
 User.hasMany(Review, {foreignKey: 'review_id'});
 
 Review.sync();
+Product.sync();
 User.sync();
-
 
 module.exports = {
   db: sequelize,
   User,
+  Product,
   Review
 }
