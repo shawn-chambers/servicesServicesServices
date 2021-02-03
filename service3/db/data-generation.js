@@ -21,6 +21,7 @@ const createFakeReview = () => ({
   header: faker.lorem.sentence(3),
   review_text: faker.lorem.paragraph(3, 3),
   rating: faker.random.number({ min: 3, max: 5 }),
+  score: faker.random.number({ min: -2, max: 4 }),
   would_recommend: faker.random.boolean()
 });
 

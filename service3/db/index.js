@@ -39,6 +39,9 @@ const Review = sequelize.define('Review', {
   header: {
     type: DataTypes.TEXT
   },
+  score: {
+    type: DataTypes.INTEGER
+  },
   would_recommend: {
     type: DataTypes.BOOLEAN
   }

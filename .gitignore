@@ -7,3 +7,4 @@ bundle.*.js
 bundle.*.js.LICENSE.txt
 service2/server/db/data.js
 imageBundle.js
+reviewBundle.js
