@@ -33,7 +33,7 @@ module.exports.get10Reviews = async (req, res) => {
         ['review_date', 'DESC']
       ],
       where: { product_id },
-      include: [db.User]
+      include: [db.User, db.Product]
     });
     if (!reviews.length) throw reviews;
     res.status(200).json({
@@ -43,6 +43,7 @@ module.exports.get10Reviews = async (req, res) => {
       }
     })
   } catch (error) {
+    console.error(error)
     res.status(404).json({
       status: 'failure',
       message: 'error getting reviews'
