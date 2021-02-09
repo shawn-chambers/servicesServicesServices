@@ -9,8 +9,8 @@ const Header = (props) => {
   return (
     <HeaderContainer>
       <div className='container'>
-        <h1>{Math.round(average * 100)/100}</h1>
-        <StarAverage average={average} size={'35px'}/>
+        <StarAverage average={average} size={'35px'} />
+        <h1>{Math.round(average * 100) / 100}/5</h1>
       </div>
     </HeaderContainer>
   )

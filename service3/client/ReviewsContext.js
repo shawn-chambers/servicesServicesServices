@@ -13,10 +13,11 @@ export const ReviewsContextProvider = (props) => {
     let prodId = window.location.pathname.slice(1, -1);
     axios.get(`http://localhost:3005/api/reviews/${prodId}/${firstReview}`)
       .then(({data}) => {
-        setReviews(data.data.reviews);
+        let allReviews = [...reviews, ...data.data.reviews];
+        setReviews(allReviews);
         setAverage(data.data.reviews[0].Product.average);
       })
-      .catch(err => console.log('error fetcing reviews', err));
+      .catch(err => console.log('error fetching reviews', err));
   }
 
   return (

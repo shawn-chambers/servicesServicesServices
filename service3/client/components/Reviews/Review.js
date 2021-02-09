@@ -22,29 +22,40 @@ User: {
 */
 
 import React from 'react';
-import { Filled, Empty } from './Stars';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+import { Filled, Empty } from '../Stars';
+import { ReviewWrapper } from './ReviewStyles.css';
+
+dayjs.extend(localizedFormat);
 
 const Review = ({ review }) => {
 
-  const renderStars = ({review_id, rating}, size) => {
+  const renderStars = ({ review_id, rating }, size) => {
     return (
-      <span>
+      <span className='user-stars'>
         {[...Array(rating).keys()].map(i => {
           return <Filled height={size} key={i + review_id} />
         })}
         {[...Array(5 - rating).keys()].map(i => {
-          return <Empty height={size} key={i - review_id} />
+          return <Filled height={size} key={i - review_id} opacity={true}/>
         })}
       </span>
     )
   }
 
   return (
-    <div className='review'>
-      {renderStars(review, '15px')}
-      <div>{review.header}</div>
-      <div>{review.text}</div>
-    </div>
+    <ReviewWrapper>
+      <div className='review'>
+        <div className='username'>{review.User.username}</div>
+        <div className='top'>
+          {renderStars(review, '15px')}
+          <span className='date'>{dayjs(review.review_date).format('LL')}</span>
+        </div>
+        <span className='review-header'>{review.header}</span>
+        <div className='review-text'>{review.review_text}</div>
+      </div>
+    </ReviewWrapper>
   )
 }
 

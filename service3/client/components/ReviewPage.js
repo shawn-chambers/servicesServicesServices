@@ -1,8 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import debounce from 'lodash.debounce';
 import { ReviewsContext } from '../ReviewsContext';
-import ReviewList from './ReviewList';
-import { Filled, Empty } from './Stars';
+import ReviewList from './Reviews/ReviewList';
 import Header from '../components/Header/Header';
 
 const ReviewPage = (props) => {
@@ -13,9 +12,11 @@ const ReviewPage = (props) => {
     fetchReviews(startingReview);
   }, [startingReview]);
 
-  const style = {
-
-  }
+  window.onscroll = debounce(() => {
+    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      setStartingReview(startingReview + 10);
+    }
+  }, 200);
 
   return (
     <>
