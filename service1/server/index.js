@@ -2,11 +2,14 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
+const cors = require('cors');
 const port = process.env.PORT || 3223;
 const productsRouter = require('./routes/productRoutes.js');
 
 const app = express();
-
+app.use(cors({
+  origin: 'http://localhost:8080'
+}))
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 };

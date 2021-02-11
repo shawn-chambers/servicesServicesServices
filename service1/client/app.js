@@ -14,9 +14,8 @@ const App = () => {
 
   useEffect(() => {
     let prodId = window.location.pathname.slice(1, -1);
-    axios.get(`http://localhost:3003/products/${prodId}`)
+    axios.get(`http://localhost:8080/products/${prodId}`)
       .then(({ data }) => {
-        console.log(data);
         setInfo(data.data.product);
       })
       .catch(err => {
@@ -27,9 +26,9 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Title prodInfo={exampleData.data.product}/>
-      <OptionSelectors prodInfo={exampleData.data.product} />
-      <Info prodInfo={exampleData.data.product} />
+      <Title prodInfo={info}/>
+      <OptionSelectors prodInfo={info} />
+      <Info prodInfo={info} />
     </>
   )
 }

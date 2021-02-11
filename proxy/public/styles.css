@@ -1,0 +1,22 @@
+body {
+  display: grid;
+  grid-template-areas: 
+    "top"
+    "bottom";
+  margin: 15px;
+}
+
+.top {
+  grid-area: top;
+  display: flex;
+  justify-content: space-between;
+}
+
+#picture-service {
+  margin-right: 15px;
+}
+
+#reviews {
+  grid-area: bottom;
+  margin-top: 20px;
+}

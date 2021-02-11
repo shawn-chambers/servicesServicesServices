@@ -11,7 +11,7 @@ export const ReviewsContextProvider = (props) => {
 
   const fetchReviews = (firstReview) => {
     let prodId = window.location.pathname.slice(1, -1);
-    axios.get(`http://localhost:3005/api/reviews/${prodId}/${firstReview}`)
+    axios.get(`http://localhost:8080/api/reviews/${prodId}/${firstReview}`)
       .then(({data}) => {
         let allReviews = [...reviews, ...data.data.reviews];
         setReviews(allReviews);
