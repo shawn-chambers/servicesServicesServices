@@ -65,6 +65,7 @@ From within `service1` directory
 npm install
 npm run seed
 npm run build:prod
+npm start
 ```
 For testing of service:
 ```
@@ -77,6 +78,7 @@ From within `service2` directory
 npm install
 npm run seed
 npm run build:dev
+npm start
 ```
 
 
@@ -85,6 +87,7 @@ From within `service3` directory
 npm install
 npm run seed
 npm run build:dev
+npm start
 ```
 
 Open browser to:
