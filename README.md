@@ -66,7 +66,6 @@ npm install
 npm run seed
 npm run build:prod
 ```
-For seeding 
 For testing of service:
 ```
 npm run build:dev
