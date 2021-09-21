@@ -6,7 +6,7 @@ Example of micro-service architecture based app for the heck of it and the sake 
 1. [Description](#description)
 1. [Technologies](#technologies)
 1. [Requirements](#requirements)
-1. [Installation and Usage](#installation_and_usage)
+1. [Installation and Usage](#installation-and-usage)
 
 ## Description
 
